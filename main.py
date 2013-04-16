@@ -19,10 +19,6 @@ import RPi.GPIO as GPIO
 import subprocess, time, Image, socket
 from Adafruit_Thermal import *
 
-ledPin       = 18
-buttonPin    = 23
-holdTime     = 2     # Duration for button hold (shutdown)
-tapTime      = 0.01  # Debounce time for button taps
 nextInterval = 0.0   # Time of next recurring operation
 dailyFlag    = False # Set after daily trigger occurs
 lastId       = '1'   # State information passed to/from interval script
@@ -33,10 +29,8 @@ printer      = Adafruit_Thermal("/dev/ttyAMA0", 19200, timeout=5)
 # Called once per day (6:30am by default).
 # Invokes weather forecast and sudoku-gfx scripts.
 def daily():
-  GPIO.output(ledPin, GPIO.HIGH)
   subprocess.call(["python", "forecast.py"])
   subprocess.call(["python", "sudoku-gfx.py"])
-  GPIO.output(ledPin, GPIO.LOW)
 
 
 # Initialization
@@ -49,22 +43,8 @@ GPIO.setmode(GPIO.BCM)
 # stalling during greeting.
 time.sleep(30)
 
-# Show IP address (if network is available)
-try:
-	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-	s.connect(('8.8.8.8', 0))
-	printer.print('My IP address is ' + s.getsockname()[0])
-	printer.feed(3)
-except:
-	printer.boldOn()
-	printer.println('Network is unreachable.')
-	printer.boldOff()
-	printer.print('Connect display and keyboard\n'
-	  'for network troubleshooting.')
-	printer.feed(3)
-	exit(0)
 
-# Print greeting image
+# Print greeting image (change this soon)
 printer.printImage(Image.open('gfx/hello.png'), True)
 printer.feed(3)
 
