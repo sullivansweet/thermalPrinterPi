@@ -1,10 +1,4 @@
 #!/usr/bin/python
-
-# Main script for Adafruit Internet of Things Printer 2.  Monitors button
-# for taps and holds, performs periodic actions (Twitter polling by default)
-# and daily actions (Sudoku and weather by default).
-# Written by Adafruit Industries.  MIT license.
-#
 # MUST BE RUN AS ROOT (due to GPIO access)
 #
 # Required software includes Adafruit_Thermal, Python Imaging and PySerial
@@ -37,11 +31,6 @@ def daily():
 
 # Use Broadcom pin numbers (not Raspberry Pi pin numbers) for GPIO
 GPIO.setmode(GPIO.BCM)
-
-
-# Processor load is heavy at startup; wait a moment to avoid
-# stalling during greeting.
-time.sleep(30)
 
 
 # Print greeting image (change this soon)
