@@ -34,8 +34,8 @@ GPIO.setmode(GPIO.BCM)
 
 
 # Print greeting image (change this soon)
-printer.printImage(Image.open('gfx/hello.png'), True)
-printer.feed(3)
+printer.println("Connected to internet")
+printer.feed(2)
 
 
 # Main loop
