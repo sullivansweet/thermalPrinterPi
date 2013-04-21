@@ -23,6 +23,7 @@ printer      = Adafruit_Thermal("/dev/ttyAMA0", 19200, timeout=5)
 # Called once per day (6:30am by default).
 # Invokes weather forecast and sudoku-gfx scripts.
 def daily():
+  #"Good Morning!" text with image
   subprocess.call(["python", "timetemp.py"])
   subprocess.call(["python", "sudoku-gfx.py"])
 
