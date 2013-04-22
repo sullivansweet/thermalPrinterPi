@@ -28,6 +28,9 @@ def daily():
   subprocess.call(["python", "sudoku-gfx.py"])
 
 
+printer.printImage(Image.open('gfx/startupTest.png'), True)
+printer.feed(3)
+
 # Initialization
 
 # Use Broadcom pin numbers (not Raspberry Pi pin numbers) for GPIO
