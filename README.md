@@ -8,5 +8,4 @@ What I've changed:
  - main.py no longer pollls Twitter
  - removed button code from main.py
  - removed the function from main.py that prints the IP adress
- - created testingMain.py to test features individually
--added testCodeHere.py to test individual features
+ - added testCodeHere.py to test individual features
