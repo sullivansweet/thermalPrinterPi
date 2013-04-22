@@ -12,5 +12,5 @@ dailyFlag    = False # Set after daily trigger occurs
 lastId       = '1'   # State information passed to/from interval script
 printer      = Adafruit_Thermal("/dev/ttyAMA0", 19200, timeout=5)
 
-printer.printImage(Image.open('gfx/hello.png'), True)
-printer.feed(3)
+printer.println("is this thing on?")
+printer.feed(2)
