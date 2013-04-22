@@ -27,7 +27,7 @@ def daily():
   subprocess.call(["python", "timetemp.py"])
   subprocess.call(["python", "sudoku-gfx.py"])
 
-
+#print greeting image
 printer.printImage(Image.open('gfx/startupTest.png'), True)
 printer.feed(3)
 
@@ -35,11 +35,6 @@ printer.feed(3)
 
 # Use Broadcom pin numbers (not Raspberry Pi pin numbers) for GPIO
 GPIO.setmode(GPIO.BCM)
-
-
-# Print greeting image (change this soon)
-printer.println("Connected to internet")
-printer.feed(2)
 
 
 # Main loop
